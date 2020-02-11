@@ -126,7 +126,7 @@
     <ClInclude Include="ArrayTemplateFunctionsLibrary.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayTemplateFunctionsLibrary.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
