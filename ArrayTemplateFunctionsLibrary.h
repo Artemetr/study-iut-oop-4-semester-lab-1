@@ -134,7 +134,7 @@ void pushBack(T*& array, int& length, T value)
 }
 
 template<typename T>
-void bubbleSortArray(T* array, int length, string sorting_rule = "ASC")
+void bubbleSortArray(T* array, int length, string sorting_rule = "ASC" = "ASC")
 {
 	for (int i = 0; i < length; i++) {
 		for (int j = length - 1; j > i; j--) {
@@ -146,7 +146,7 @@ void bubbleSortArray(T* array, int length, string sorting_rule = "ASC")
 }
 
 template<typename T>
-void shakerSortArray(T* array, int length, string sorting_rule = "ASC")
+void shakerSortArray(T* array, int length, string sorting_rule = "ASC" = "ASC")
 {
 	int leftEnd = 1;
 	int rightEnd = length - 1;
@@ -168,7 +168,7 @@ void shakerSortArray(T* array, int length, string sorting_rule = "ASC")
 }
 
 template<typename T>
-void insertionSortArray(T* array, int length, string sorting_rule)
+void insertionSortArray(T* array, int length, string sorting_rule = "ASC")
 {
 	for (int i = 1; i < length; i++) {
 		int tmp_i = i;
@@ -182,7 +182,7 @@ void insertionSortArray(T* array, int length, string sorting_rule)
 }
 
 template<typename T>
-void optimizedBubbleSortArray(T* array, int length, string sorting_rule)
+void optimizedBubbleSortArray(T* array, int length, string sorting_rule = "ASC")
 {
 	bool flipped;
 	for (int i = 0; i < length; i++) {
@@ -318,20 +318,20 @@ T getSumOfPredicatElementsOfArray(T* array, int length, F predicat)
 }
 
 template<typename T, class F>
-T getMultiplyOfPredicatElementsOfArray(T* array, int length, F predicat)
+T getmultiplicationOfPredicatElementsOfArray(T* array, int length, F predicat)
 {
-	T multiply;
+	T multiplication;
 	for (int i = 0; i < length; i++) {
 		if (predicat(array[i])) {
-			if (!multiply) {
-				multiply = array[i];
+			if (!multiplication) {
+				multiplication = array[i];
 			}
 			else {
-				multiply *= array[i];
+				multiplication *= array[i];
 			}
 		}
 	}
-	return multiply;
+	return multiplication;
 }
 
 template<typename T, class F>
@@ -347,4 +347,17 @@ int* getArrayOfPredicatIndexElementsOfArray(T* array, int length, F predicat)
 		}
 	}
 	return needed_array;
+}
+
+template<typename T>
+void removeElementOfArrayByIndex(T* array, int& length, int index) {
+	if (!inLength(length, index)) {
+		return;
+	}
+
+	for (int i = index; i < length - 1; i++) {
+		array[i] = array[i + 1];
+	}
+
+	array[length - 1] = (T) 0;
 }
