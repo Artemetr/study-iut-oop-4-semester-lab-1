@@ -13,9 +13,13 @@ void main() {
 
 	//get count nullable elements after negative elements of array
 	int* nullable_index_array = getArrayOfPredicatIndexElementsOfArray(array, length, [](int value) {return value == 0; });
+
 	int nullable_index_array_length = getCountPredicatElementsOfArray(array, length, [](int value) {return value == 0; });
+
 	int* negative_index_array = getArrayOfPredicatIndexElementsOfArray(array, length, [](int value) {return value < 0; });
+
 	int negative_index_array_length = getCountPredicatElementsOfArray(array, length, [](int value) {return value < 0; });
+
 	int count_nullable_after_negative = 0;
 	for (int i = 0; i < nullable_index_array_length; i++) {
 		if (iterationBinaryFindElementOfArrayByValue(negative_index_array, negative_index_array_length, nullable_index_array[i] - 1) != -1) {
@@ -31,6 +35,8 @@ void main() {
 	}
 	cout << multiplication << endl;
 
+	cout << getmultiplicationOfPredicatElementsOfArray(array, negative_index_array[negative_index_array_length - 1], [](int value) {return true; }) << endl;
+
 	//sorting array
 	showArray(array, length);
 	optimizedBubbleSortArray(array, length);
@@ -38,12 +44,16 @@ void main() {
 
 	//etc.
 	int number = 2;
-	int* divisible_index_array = getArrayOfPredicatIndexElementsOfArray(array, length, [number](int value) {return value % number == 0; });
-	int divisible_index_array_length = getCountPredicatElementsOfArray(array, length, [number](int value) {return value % number == 0; });
+	int* divisible_index_array = 
+		getArrayOfPredicatIndexElementsOfArray(array, length, [number](int value) {return value % number == 0; });
+	
+	int divisible_index_array_length = 
+		getCountPredicatElementsOfArray(array, length, [number](int value) {return value % number == 0; });
 
 	for (int i = 0; i < divisible_index_array_length; i++) {
 		removeElementOfArrayByIndex(array, length, divisible_index_array[i] - i);
 	}
+
 	showArray(array, length);
 	system("pause");
 }
