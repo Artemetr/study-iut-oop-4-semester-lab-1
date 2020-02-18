@@ -320,15 +320,10 @@ T getSumOfPredicatElementsOfArray(T* array, int length, F predicat)
 template<typename T, class F>
 T getmultiplicationOfPredicatElementsOfArray(T* array, int length, F predicat)
 {
-	T multiplication = 1;
-	for (int i = 0; i < length; i++) {
+	T multiplication = array[0];
+	for (int i = 1; i < length; i++) {
 		if (predicat(array[i])) {
-			if (!multiplication) {
-				multiplication = array[i];
-			}
-			else {
-				multiplication *= array[i];
-			}
+			multiplication *= array[i];
 		}
 	}
 	return multiplication;
